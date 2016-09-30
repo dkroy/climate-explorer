@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" />
+<style type="text/css">
+header{
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border-bottom: lightblue 1px solid;
+}
+header > h3{
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+footer{
+  padding-left: 10px;
+  color:#CCC;
+  font-size: 10px;
+}
+.chart-container {
+  padding: 0px 20px;
+}
+#chart .c3-line-Temp {
+  stroke-width: 5px;
+}
+.c3-legend {
+  background-color: white;
+}
+</style>
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+<script>
+var chart = c3.generate({
+    data: {
+        x: 'Day',
+        url: 'data.csv'
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d'
+            }
+        }
+    }
+});
+</script>
+</head>
+<body>
+<header>
+  <h3>Same Day Temperatures</h3>
+  </header>
+<div class="chart-container"></div>
+<div id="chart"></div>
+<footer>
+  <i>* Based Upon NOAA GSOD data</i>
+</footer>
+</body>
+</html>

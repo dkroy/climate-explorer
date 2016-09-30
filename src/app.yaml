@@ -1,0 +1,8 @@
+service: climate
+runtime: python
+vm: true
+entrypoint: gunicorn -b :$PORT main:application
+runtime_config:
+  python_version: 2
+env_variables:
+  ENVIRONMENT: 'production'

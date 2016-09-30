@@ -1,0 +1,25 @@
+# start with a base image
+FROM ubuntu:14.04
+
+# Environment Variables
+ENV ENVRONMENT production
+
+# install dependencies
+RUN apt-get -y update
+RUN apt-get install -y libffi-dev libssl-dev
+RUN apt-get install -y python python-dev python-pip
+
+WORKDIR /code
+
+# Add requirements and install
+ADD requirements.txt /code/
+RUN pip install -r requirements.txt
+
+# Add github repo code
+ADD . /code
+
+# Change container timezone
+RUN echo America/Chicago | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
+
+# Run the server
+CMD python main.py

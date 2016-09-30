@@ -1,0 +1,8 @@
+# Web Server
+Flask==0.10.1
+Flask-Cors==3.0.2
+# Persistance Layer
+redislite==3.0.296
+# Services
+geoip2==2.4.0
+google-api-python-client==1.5.3
