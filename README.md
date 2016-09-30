@@ -24,7 +24,7 @@ source deploy.sh
 ```
 
 ## Future
-* Renable Docker/Docker Compose
+* Re-enable Docker/Docker Compose
 * Spark backend leveraging Amazon's new public data in S3.
 * Remove depencency on NOAA Web Service for initial Station mapping.
 * Use centroids to gather more close weatherstations and average the result to go further back in time for the climate.
