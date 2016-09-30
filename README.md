@@ -1,6 +1,8 @@
 # Climate Explorer
 The climate explorer uses publicly available NOAA GSOD Data to display climate data for the same day each year. It currently retrieves the climate data from the weather stations located nearest to the location derived from the visitor's IP address leveraging the maxmind geoip dataset.
 
+![Climate Explorer Screenshot](/docs/images/screenshot.png?raw=true "Climate Explorer Screenshot")
+
 ## Install
 ```
 cd scripts
