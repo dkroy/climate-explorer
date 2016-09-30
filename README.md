@@ -10,6 +10,7 @@ source install.sh
 The Docker run instructions are currently disabled, but you can still run the Flask server locally. Once started you can navigate to localhost on port 8085 to visit the main page.
 ```
 cd src
+export GOOGLE_KEYFILE=YOUR_KEY_LOCATION
 python main.py
 ```
 
@@ -26,3 +27,4 @@ source deploy.sh
 * Remove depencency on NOAA Web Service for initial Station mapping.
 * Use centroids to gather more close weatherstations and average the result to go further back in time for the climate.
 * Stitch in current weather.
+* Pull all configs from environment varibles.
