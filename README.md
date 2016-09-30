@@ -1,5 +1,5 @@
 # Climate Explorer
-The climate explorer uses publicly available NOAA GSOD Data to display climate data for the same day each year.
+The climate explorer uses publicly available NOAA GSOD Data to display climate data for the same day each year. It currently retrieves the climate data from the weather stations located nearest to the location derived from the visitor's IP address leveraging the maxmind geoip dataset.
 
 ## Install
 ```
@@ -7,7 +7,7 @@ cd scripts
 source install.sh
 ```
 ## Run
-The Docker run instructions are currently disabled, but you can still run the Flask server locally.
+The Docker run instructions are currently disabled, but you can still run the Flask server locally. Once started you can navigate to localhost on port 8085 to visit the main page.
 ```
 cd src
 python main.py

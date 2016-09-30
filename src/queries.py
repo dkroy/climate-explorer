@@ -28,12 +28,12 @@ def climate_query(station_call, dt=None):
     client = bq.get_client(keyfile=GOOGLE_KEYFILE)
     job_id = bq.query_job(climate_query, client=client)
     job = bq.get_job(job_id, client=client)
-    print climate_query
     while not bq.get_table_data(job, client=client):
+        job = bq.get_job(job_id, client=client)
         time.sleep(5)
     d = bq.get_table_data(job, client=client)
     yearly_temps = map(lambda x: ('{0}-{1}-{2}'.format(x['year'], x['mo'], x['da']), x['temp']), d)
     return yearly_temps
 
 if __name__ == '__main__':
-    climate_query("KFCM", dt=datetime.datetime.now())
+    climate_query("ENSO", dt=datetime.datetime.now())
