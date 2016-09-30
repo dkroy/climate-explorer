@@ -18,11 +18,10 @@ app.url_map.strict_slashes = False
 @app.route("/data.csv", methods=["GET"])
 def data():
     ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
-    weather_stations = get_weather_stations('4.30.114.107')
+    weather_stations = get_weather_stations(ip_address)
     yearly_temps = climate_query(weather_stations, dt=datetime.datetime.now())
-    tsv = 'Day,Temp\n' + '\n'.join(map(lambda x: ','.join(x), yearly_temps))
-    print tsv
-    return tsv, 200
+    csv = 'Day,Temp\n' + '\n'.join(map(lambda x: ','.join(x), yearly_temps))
+    return csv, 200
 
 
 @app.route("/", methods=["GET"])
@@ -33,7 +32,7 @@ def home():
 @app.route("/info", methods=["GET"])
 def info():
     ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
-    weather_stations = get_weather_stations('4.30.114.107')
+    weather_stations = get_weather_stations(ip_address)
     return jsonify({'ip': ip_address,
                     'weather_stations': weather_stations}), 200
 
